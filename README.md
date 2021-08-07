@@ -37,6 +37,9 @@ Rodar o comando de atualização do NPM:
 
 Rodar as migrations:
 `./vendor/bin/sail php artisan migrate --step`
+    Ao rodas as migrações pode ser apresentado erro com a mensagem ` SQLSTATE[HY000] [2002] Connection refused `, isso ocorre enquanto o mysql ainda não concluiu sua inicialização e criação do banco de dados, caso esse erro ocorra é necessário aguardar a criação do banco. Ao acessar a URL da aplicação será apresentado o mesmo erro, após a criação correta do banco a mensagem será alterada para ` SQLSTATE[42S02]: Base table or view not found: ` indicando que as migrations não foram executadas. Após a criação correta do banco de dados as migrations serão executadas sem erro.
+
+
 
 Para parar os contnainers utilize o comando:
 `./vendor/bin/sail down`
