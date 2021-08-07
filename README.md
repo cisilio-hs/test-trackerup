@@ -32,8 +32,11 @@ A aplicação foi construida utilizado Docker fornecido pelo Laravel Sail.
 Dentro da pasta do projeto rodar o comando de inicialização para subir os containers:
 `./vendor/bin/sail up -d`
 
-Rodar o comando de primeira inicialização:
-`./vendor/bin/sail composer new-install`
+Rodar o comando de atualização do NPM:
+`./vendor/bin/sail npm i`
+
+Rodar as migrations:
+`./vendor/bin/sail php artisan migrate --step`
 
 
 # API
