@@ -47,7 +47,7 @@ Para parar os contnainers utilize o comando:
 
 
 # API
-### Authenticação
+## Authenticação
 Foi utilizado o *jetstream* e o *sanctum* para proteção das rotas.
 Foi adicionado parâmetro **API_AUTH** no arquivo *.env* . Caso seja definido como *true* será necessário passar o token de autenticação no cabeçalho da requisição; caso seja definido como *false* as rotas da API aceitará qualquer requisição e o token não será necessário.
 O token deve ser criado após o registro do usuário, no canto superior direito, no menu *API Tokens*.
@@ -64,10 +64,11 @@ curl --location --request GET 'http://localhost/api/pecas' \
 ```
 
 
+## URLs
 ### Lista
-URL: /api/pecas
-Metodo: GET
-Parametros: categoria
+URL: `/api/pecas`
+Metodo: `GET`
+Parametros: `categoria`
 
 Ex: 
 ```
@@ -89,8 +90,8 @@ Dependendo da quantidade de registros a lista poderia ser paginada.
 
 
 ### Consulta
-URL: /api/pecas/{peca_id}
-Metodo: GET
+URL: `/api/pecas/{peca_id}`
+Metodo: `GET`
 Ex: 
 ```
 curl --location --request GET 'http://localhost/api/pecas/1' \
@@ -99,8 +100,8 @@ curl --location --request GET 'http://localhost/api/pecas/1' \
 
 Consulta da peça com ID *1*
 
-URL: /api/pecas/{peca_codigo}/codigo
-Metodo: GET
+URL: `/api/pecas/{peca_codigo}/codigo`
+Metodo: `GET`
 Ex: 
 ```
 curl --location --request GET 'http://localhost/api/pecas/teste/codigo' \
@@ -110,8 +111,8 @@ curl --location --request GET 'http://localhost/api/pecas/teste/codigo' \
 Consulta da peça com Código *'teste'*
 
 ### Criar
-URL: /api/pecas
-Metodo: POST
+URL: `/api/pecas`
+Metodo: `POST`
 
 Ex:
 ```
@@ -126,8 +127,8 @@ curl --location --request POST 'http://localhost/api/pecas' \
 Cadastra uma Peça, os campos *nome* e *descricao* não são obrigatórios e podem ser omitidos.
 
 ### Editar
-URL: /api/pecas/{peca_id}
-Metodo: POST
+URL: `/api/pecas/{peca_id}`
+Metodo: `POST`
 
 Ex:
 ```
@@ -142,8 +143,8 @@ curl --location --request POST 'http://localhost/api/pecas/1' \
 Edita Peça com ID *1*, não há campos obrigatórios, os campos não informados não serão alterados.
 
 
-URL: /api/pecas/{peca_codigo}/codigo
-Metodo: POST
+URL: `/api/pecas/{peca_codigo}/codigo`
+Metodo: `POST`
 
 Ex:
 ```
@@ -158,9 +159,9 @@ curl --location --request POST 'http://localhost/api/pecas/teste/codigo' \
 Edita Peça com Codigo *teste*, não há campos obrigatórios, os campos não informados não serão alterados.
 
 
-#### Deletar
-URL: /api/pecas/{peca_id}
-Metodo: DELETE
+### Deletar
+URL: `/api/pecas/{peca_id}`
+Metodo: `DELETE`
 
 Ex:
 ```
@@ -170,8 +171,8 @@ curl --location --request DELETE 'http://localhost/api/pecas/1' \
 
 Deleta a Peça com ID *1*.
 
-URL: /api/pecas/{peca_codigo}/codigo
-Metodo: DELETE
+URL: `/api/pecas/{peca_codigo}/codigo`
+Metodo: `DELETE`
 
 Ex:
 ```
@@ -182,10 +183,10 @@ curl --location --request DELETE 'http://localhost/api/pecas/teste/codigo' \
 Deleta a Peça com Codigo *teste*.
 
 
-#### Listar Excluidos
-URL: /api/trash/pecas
-Metodo: GET
-Parametros: categoria
+### Listar Excluidos
+URL: `/api/trash/pecas`
+Metodo: `GET`
+Parametros: `categoria`
 
 Ex: 
 ```
@@ -205,9 +206,9 @@ Lista as peças excluidas da categoria *teste*.
 
 Dependendo da quantidade de registros a lista poderia ser paginada.
 
-#### Restaurar
-URL: /api/trash/pecas/{peca_id}/restore
-Metodo: POST
+### Restaurar
+URL: `/api/trash/pecas/{peca_id}/restore`
+Metodo: `POST`
 
 Ex:
 ```
@@ -217,8 +218,8 @@ curl --location --request POST 'http://localhost/api/trash/pecas/1/restore' \
 
 Restaura a Peça Excluída com ID *1*.
 
-URL: /api/pecas/{peca_codigo}/codigo/restore
-Metodo: POST
+URL: `/api/pecas/{peca_codigo}/codigo/restore`
+Metodo: `POST`
 
 Ex:
 ```
@@ -231,7 +232,7 @@ Restaura a Peça Excluída com Codigo *teste*.
 
 
 # Tela
-Ex: 'http://localhost/pecas'
+Ex: `http://localhost/pecas`
 Foi adicionada tela em '/pecas' utilizando o *Vue* e o *Inertia*. 
 Funcionalidades:
 - listar
