@@ -1,5 +1,5 @@
 
-## Tarefa
+# Tarefa
 
 Crie uma aplicação *REST API* em *PHP* que forneça endpoints para *inclusão*, *alteração*, *exclusão*, *consulta* e *listagem* de **peças**.
 Dentre os *atributos* das peças estão sua **categoria** e seu **identificador** único, *informado manualmente durante a inclusão*.
@@ -7,9 +7,9 @@ A consulta pode ser *realizada pelo **identificador** * e a *listagem pode ser f
 Sua API deve *realizar apenas exclusões lógicas* dos dados, nunca exclusões físicas.
 Desejável a implementação de um frontend para exibição da listagem.
 
-## Modelo
-### Peça
-#### Campos
+# Modelo
+## Peça
+### Campos
 - **id**: campo de identificação do BD
 - **codigo**: campo único e obrigatório informado na criação
 - **categoria**: campo obrigatório informado na criação
@@ -19,7 +19,7 @@ Desejável a implementação de um frontend para exibição da listagem.
 - **updated_at**: campo do Laravel para data de edição
 - **deleted_at**: campo do Laravel para tratamento do *soft delete*
 
-#### Comentário
+### Comentário
 Foi requisitado apenas os campos *identificador* e *categoria*, porém não seria trivial a manutenção das informações sem um campo em texto livre pra que o usuário possa identificar corretamente da item, então foram adicionados os campos *nome* e *descricao*; os campos foram adicionas como nullable, podendo não ser utilizado caso não seja necessário.
 
 Devido a boas práticas e afim de evitar insersão do usuário em uma *chave primária*  o campo ID foi mantido e foi criado o campo *codigo*.
@@ -27,7 +27,7 @@ Devido a boas práticas e afim de evitar insersão do usuário em uma *chave pri
 O campo *categoria* também foi requisitado como editável via API de peças, o campo foi criado como texto, porém o ideal seria que esse campo fosse outra tabela com o celacionamento com a tabela de peças.
 
 
-## Inicialização
+# Inicialização
 A aplicação foi construida utilizado Docker fornecido pelo Laravel Sail.
 Dentro da pasta do projeto rodar o comando de inicialização para subir os containers:
 `./vendor/bin/sail up -d`
@@ -41,8 +41,8 @@ Atualizar os pacotes do npm:
 
 
 
-## API
-#### Authenticação
+# API
+### Authenticação
 Foi utilizado o *jetstream* e o *sanctum* para proteção das rotas.
 Foi adicionado parâmetro **API_AUTH** no arquivo *.env* . Caso seja definido como *true* será necessário passar o token de autenticação no cabeçalho da requisição; caso seja definido como *false* as rotas da API aceitará qualquer requisição e o token não será necessário.
 O token deve ser criado após o registro do usuário, no canto superior direito, no menu *API Tokens*.
@@ -59,7 +59,7 @@ curl --location --request GET 'http://localhost/api/pecas' \
 `
 
 
-#### Lista
+### Lista
 URL: /api/pecas
 Metodo: GET
 Parametros: categoria
@@ -83,7 +83,7 @@ Lista as peças da categoria *teste*
 Dependendo da quantidade de registros a lista poderia ser paginada.
 
 
-#### Consulta
+### Consulta
 URL: /api/pecas/{peca_id}
 Metodo: GET
 Ex: 
@@ -104,7 +104,7 @@ curl --location --request GET 'http://localhost/api/pecas/teste/codigo' \
 
 Consulta da peça com Código *'teste'*
 
-#### Criar
+### Criar
 URL: /api/pecas
 Metodo: POST
 
@@ -120,7 +120,7 @@ curl --location --request POST 'http://localhost/api/pecas' \
 
 Cadastra uma Peça, os campos *nome* e *descricao* não são obrigatórios e podem ser omitidos.
 
-#### Editar
+### Editar
 URL: /api/pecas/{peca_id}
 Metodo: POST
 
@@ -151,7 +151,7 @@ curl --location --request POST 'http://localhost/api/pecas/teste/codigo' \
 Edita Peça com Codigo *teste*, não há campos obrigatórios, os campos não informados não serão alterados.
 
 
-##### Deletar
+#### Deletar
 URL: /api/pecas/{peca_id}
 Metodo: DELETE
 
@@ -175,7 +175,7 @@ curl --location --request DELETE 'http://localhost/api/pecas/teste/codigo' \
 Deleta a Peça com Codigo *teste*.
 
 
-##### Listar Excluidos
+#### Listar Excluidos
 URL: /api/trash/pecas
 Metodo: GET
 Parametros: categoria
@@ -198,7 +198,7 @@ Lista as peças excluidas da categoria *teste*.
 
 Dependendo da quantidade de registros a lista poderia ser paginada.
 
-##### Restaurar
+#### Restaurar
 URL: /api/trash/pecas/{peca_id}/restore
 Metodo: POST
 
@@ -223,7 +223,7 @@ Restaura a Peça Excluída com Codigo *teste*.
 
 
 
-## Tela
+# Tela
 Ex: 'http://localhost/pecas'
 Foi adicionada tela em '/pecas' utilizando o *Vue* e o *Inertia*. 
 Funcionalidades:
