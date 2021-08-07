@@ -3,21 +3,21 @@
 
 Crie uma aplicação *REST API* em *PHP* que forneça endpoints para *inclusão*, *alteração*, *exclusão*, *consulta* e *listagem* de **peças**.
 Dentre os *atributos* das peças estão sua **categoria** e seu **identificador** único, *informado manualmente durante a inclusão*.
-A consulta pode ser *realizada pelo* ***identificador*** e a *listagem pode ser filtrada por* ***categorias***.
+A consulta pode ser _realizada pelo* **identificador**_ e a _listagem pode ser filtrada por* ***categorias**_.
 Sua API deve *realizar apenas exclusões lógicas* dos dados, nunca exclusões físicas.
 Desejável a implementação de um frontend para exibição da listagem.
 
 # Modelo
 ## Peça
 ### Campos
-- __**id**__: campo de identificação do BD
-- __**codigo**__: campo único e obrigatório informado na criação
-- __**categoria**__: campo obrigatório informado na criação
-- __**nome**__: campo string, pode ser nulo
-- __**descricao**__: campo texto, pode ser nulo
-- __**created_at**__: campo do Laravel para data de criação
-- __**updated_at**__: campo do Laravel para data de edição
-- __**deleted_at**__: campo do Laravel para tratamento do *soft delete*
+- __id__: campo de identificação do BD
+- __codigo__: campo único e obrigatório informado na criação
+- __categoria__: campo obrigatório informado na criação
+- __nome__: campo string, pode ser nulo
+- __descricao__: campo texto, pode ser nulo
+- __created_at__: campo do Laravel para data de criação
+- __updated_at__: campo do Laravel para data de edição
+- __deleted_at__: campo do Laravel para tratamento do *soft delete*
 
 ### Comentário
 Foi requisitado apenas os campos *identificador* e *categoria*, porém não seria trivial a manutenção das informações sem um campo em texto livre pra que o usuário possa identificar corretamente da item, então foram adicionados os campos *nome* e *descricao*; os campos foram adicionas como nullable, podendo não ser utilizado caso não seja necessário.
@@ -37,7 +37,8 @@ Rodar o comando de atualização do NPM:
 
 Rodar as migrations:
 `./vendor/bin/sail php artisan migrate --step`
-    Ao rodas as migrações pode ser apresentado erro com a mensagem ` SQLSTATE[HY000] [2002] Connection refused `, isso ocorre enquanto o mysql ainda não concluiu sua inicialização e criação do banco de dados, caso esse erro ocorra é necessário aguardar a criação do banco. Ao acessar a URL da aplicação será apresentado o mesmo erro, após a criação correta do banco a mensagem será alterada para ` SQLSTATE[42S02]: Base table or view not found: ` indicando que as migrations não foram executadas. Após a criação correta do banco de dados as migrations serão executadas sem erro.
+
+> Ao rodas as migrações pode ser apresentado erro com a mensagem ` SQLSTATE[HY000] [2002] Connection refused `, isso ocorre enquanto o mysql ainda não concluiu sua inicialização e criação do banco de dados, caso esse erro ocorra é necessário aguardar a criação do banco. Ao acessar a URL da aplicação será apresentado o mesmo erro, após a criação correta do banco a mensagem será alterada para ` SQLSTATE[42S02]: Base table or view not found: ` indicando que as migrations não foram executadas. Após a criação correta do banco de dados as migrations serão executadas sem erro.
 
 
 
