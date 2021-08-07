@@ -38,6 +38,9 @@ Rodar o comando de atualização do NPM:
 Rodar as migrations:
 `./vendor/bin/sail php artisan migrate --step`
 
+Para parar os contnainers utilize o comando:
+`./vendor/bin/sail down`
+
 
 # API
 ### Authenticação
